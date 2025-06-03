@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iomniscient Safety Solution</title>
+  <style>
+    body::before {
+      content: "";
+      background: url('https://iomniscient.com/wp-content/uploads/2020/12/iq-logo-blue.png') no-repeat center center;
+      background-size: 300px;
+      opacity: 0.04;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+    body { font-family: Arial, sans-serif; background: #f4f6f8; padding: 20px; margin: 0; }
+    header { text-align: center; padding: 10px 0; }
+    h1 { color: #004080; margin-bottom: 5px; }
+    .logo { max-width: 150px; }
+    .section { margin: 20px auto; max-width: 800px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.05); }
+    .section h2 { font-size: 20px; margin-bottom: 10px; color: #003366; }
+    .section p, ul { font-size: 15px; line-height: 1.6; }
+    ul { padding-left: 20px; }
+    .calc-box { background: #fefefe; padding: 20px; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px; }
+    label, input, select { display: block; margin: 10px 0; width: 100%; padding: 8px; }
+    footer { text-align: center; margin-top: 40px; font-size: 14px; color: #555; padding-top: 20px; border-top: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+<header>
+  <img src="https://iomniscient.com/wp-content/uploads/2020/12/iq-logo-blue.png" alt="Iomniscient Logo" class="logo">
+  <h1>Smart Camera Safety Estimator</h1>
+  <p>Automated Quote Tool – Powered by Iomniscient Pvt Ltd</p>
+</header>
+
+<div class="section">
+  <img src="https://cdn.pixabay.com/photo/2016/11/23/14/52/falling-1859388_1280.png" alt="Slip Warning Sign" style="width:100%; max-height:300px; object-fit:contain; border-radius:8px; margin-bottom:15px;">
+  <h2>Slip Accident vs Smart Camera Savings</h2>
+  <p>If a slip incident occurs due to a spill, a business may face:</p>
+  <ul>
+    <li>Penalty / Compensation: Can be significant depending on the case</li>
+    <li><strong>Reputation Damage & Downtime</strong></li>
+  </ul>
+  <p>Instead, installing spill-detection AI cameras is a one-time investment that pays off quickly by preventing incidents and providing real-time alerts.</p>
+  <div class="calc-box">
+    <label for="cameras">Number of Spill Detection Cameras:</label>
+    <input type="number" id="cameras" value="5" min="1" />
+
+    <label for="install">Installation Cost (Enter Amount in AUD):</label>
+    <input type="number" id="install" placeholder="e.g., 500" min="0" />
+
+    <label for="training">Training & Maintenance Cost (Enter Amount in AUD):</label>
+    <input type="number" id="training" placeholder="e.g., 500" min="0" />
+
+    <p><strong>Total Prevention Investment: <span id="totalCost">$0</span> AUD</strong></p>
+    <p style="margin-top:10px; color:#008000;">Compare that to a single slip penalty that could cost tens of thousands or more.</p>
+  </div>
+
+  <div class="calc-box">
+    <h2>Annual Spill Incident Penalty Estimator</h2>
+    <label for="incidents">Number of Spill Incidents Per Year:</label>
+    <input type="number" id="incidents" value="5" min="0" />
+
+    <label for="penaltyPerIncident">Average Penalty per Incident (Enter Amount in AUD):</label>
+    <input type="number" id="penaltyPerIncident" placeholder="e.g., 20000" min="0" />
+
+    <p><strong>Total Annual Penalty: <span id="totalPenalty">$0</span> AUD</strong></p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>What Our Clients Say</h2>
+  <blockquote style="font-style: italic; background: #f0f8ff; padding: 15px; border-left: 4px solid #0080ff; border-radius: 5px;">
+    "Since installing Iomniscient's smart cameras, we've seen a 90% reduction in safety incidents. It's a game-changer for our operations."
+    <br><strong>– Operations Manager, Major Retail Chain</strong>
+  </blockquote>
+</div>
+
+<div class="section" style="background: #e0ffe0; text-align: center; padding: 20px; border: 2px solid #4caf50;">
+  <h2 style="color: #2e7d32;">Safety Pays Off</h2>
+  <p style="font-size: 18px; font-weight: bold;">Protect your people. Avoid penalties. Build trust.</p>
+  <p>Join hundreds of businesses making safety smarter with Iomniscient.</p>
+</div>
+
+<script>
+  const cameraInput = document.getElementById('cameras');
+  const installInput = document.getElementById('install');
+  const trainingInput = document.getElementById('training');
+  const totalOutput = document.getElementById('totalCost');
+
+  function calculateTotal() {
+    const installCost = parseInt(installInput.value || 0);
+    const trainingCost = parseInt(trainingInput.value || 0);
+    const total = installCost + trainingCost;
+    totalOutput.textContent = `$${total.toLocaleString()}`;
+  }
+
+  cameraInput.addEventListener('input', calculateTotal);
+  installInput.addEventListener('input', calculateTotal);
+  trainingInput.addEventListener('input', calculateTotal);
+
+  const incidentsInput = document.getElementById('incidents');
+  const penaltyInput = document.getElementById('penaltyPerIncident');
+  const totalPenaltyOutput = document.getElementById('totalPenalty');
+
+  function updatePenalty() {
+    const incidents = parseInt(incidentsInput.value || 0);
+    const penalty = parseInt(penaltyInput.value || 0);
+    const penaltyTotal = incidents * penalty;
+    totalPenaltyOutput.textContent = `$${penaltyTotal.toLocaleString()}`;
+  }
+
+  incidentsInput.addEventListener('input', updatePenalty);
+  penaltyInput.addEventListener('input', updatePenalty);
+</script>
+
+<div class="section">
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>✅ Detects hazards before they cause injury</li>
+    <li>✅ Saves thousands in legal and compensation costs</li>
+    <li>✅ Real-time alerts with video evidence</li>
+    <li>✅ Proven technology trusted globally</li>
+  </ul>
+</div>
+
+<div class="section" style="background: #fff3e0; border-left: 5px solid #fb8c00; padding: 20px; margin-top: 20px;">
+  <h2 style="color:#ef6c00;">Protect Your Business from Expensive Lawsuits</h2>
+  <p>In Australia, slip and fall injuries fall under public liability law. These claims can cover lost income, medical bills, and damages for pain. Without proactive safety measures, your business could be liable. Iomniscient’s AI-powered cameras reduce this risk while demonstrating your commitment to safety and compliance.</p>
+</div>
+
+<footer>
+  <p>Contact: info@iomniscient.com | +61 2 9411 2229</p>
+  <p><a href="https://iomniscient.com" target="_blank">Visit Our Website</a></p>
+  <p>&copy; Iomniscient Pvt Ltd</p>
+</footer>
+</body>
+</html>
